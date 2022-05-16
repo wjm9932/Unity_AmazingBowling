@@ -34,6 +34,11 @@ public class BallShooter : MonoBehaviour
 
     private void Update()
     {
+        if(isFired == true)
+        {
+            return;
+        }
+
         if(currentForce >= maxForce && !isFired)
         {
             currentForce = maxForce; // 여기를 currentForce = minForce로 해보기.
