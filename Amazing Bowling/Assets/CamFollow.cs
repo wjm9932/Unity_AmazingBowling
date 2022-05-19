@@ -21,7 +21,7 @@ public class CamFollow : MonoBehaviour
                     targetZoomSize = roundReadyZoomSize;
                     break;
                 case State.Ready:
-                    targetZoomSize = roundReadyZoomSize;
+                    targetZoomSize = roundShotZoomSize;
                     break;
                 case State.Tracking:
                     targetZoomSize = trackingZoomSize;
@@ -53,14 +53,12 @@ public class CamFollow : MonoBehaviour
     {
         targetPosition = target.transform.position;
         Vector3 smoothPosition = Vector3.SmoothDamp(transform.position, targetPosition, ref lastMovingVelocity, smoothTime);
-
         transform.position = smoothPosition;   
     }
 
     private void Zoom()
     {
         float smoothZoomSize = Mathf.SmoothDamp(cam.orthographicSize, targetZoomSize, ref lastZoomSpeed, smoothTime);
-
         cam.orthographicSize = smoothZoomSize;
     }
 

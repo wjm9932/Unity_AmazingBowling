@@ -37,8 +37,9 @@ public class BallEffect : MonoBehaviour
 
         explosionParticle.transform.parent = null;
         explosionParticle.Play();
-
         explosionAudio.Play();
+
+        GameManager.instance.OnBallDestory();
 
         Destroy(explosionParticle.gameObject, explosionParticle.duration);
         Destroy(gameObject);
